@@ -4,7 +4,7 @@
 	"private": true,
 	"sideEffects": false,
 	"type": "module",
-	"main": "src/index.ts",
+	"main": "src/infra.app.ts",
 	"scripts": {
 		"check:lint": "run-eslint",
 		"check:types": "run-tsc",
