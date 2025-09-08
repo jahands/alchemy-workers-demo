@@ -130,6 +130,18 @@ importers:
 
   apps/infra:
     dependencies:
+      '@repo/admin':
+        specifier: workspace:*
+        version: link:../admin
+      '@repo/frontend':
+        specifier: workspace:*
+        version: link:../frontend
+      '@repo/internal-api':
+        specifier: workspace:*
+        version: link:../internal-api
+      '@repo/public-api':
+        specifier: workspace:*
+        version: link:../public-api
       alchemy:
         specifier: 0.65.0
         version: 0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0)

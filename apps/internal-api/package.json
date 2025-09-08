@@ -1,9 +1,12 @@
 {
-	"name": "internal-api",
+	"name": "@repo/internal-api",
 	"version": "0.1.0",
 	"private": true,
 	"sideEffects": false,
 	"type": "module",
+	"exports": {
+		"./infra": "./alchemy.run.ts"
+	},
 	"scripts": {
 		"build:wrangler": "run-wrangler-build",
 		"check:lint": "run-eslint",

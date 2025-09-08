@@ -1,17 +1,25 @@
-import alchemy from 'alchemy'
+import path from 'node:path'
+import { Resource } from 'alchemy'
 import { Worker } from 'alchemy/cloudflare'
-import { CloudflareStateStore } from 'alchemy/state'
 
-const app = await alchemy('acme', {
-	stateStore: (scope) => new CloudflareStateStore(scope),
-})
+import type { Context } from 'alchemy'
 
-const frontendWorker = await Worker('frontend', {
-	entrypoint: './src/frontend.app.ts',
-	compatibilityDate: '2025-09-08',
-	compatibilityFlags: ['nodejs_compat'],
-})
+const srcDir = path.join(__dirname, 'src')
 
-console.log(`frontend deployed at: ${frontendWorker.url}`)
+export interface FrontendProps {}
+export interface Frontend extends Resource<'custom::frontend'>, FrontendProps {}
+export const Frontend = Resource(
+	'custom::frontend',
+	async function (this: Context<Frontend>, _id, _props) {
+		const frontendWorker = await Worker('frontend', {
+			entrypoint: path.join(srcDir, 'frontend.app.ts'),
+			compatibilityDate: '2025-09-08',
+			compatibilityFlags: ['nodejs_compat'],
+		})
 
-await app.finalize()
+		console.log(`frontend deployed at: ${frontendWorker.url}`)
+
+		return frontendWorker
+	}
+)
+
