@@ -7,19 +7,19 @@ import type { PublicApi } from '@repo/acme-api/alchemy.resources'
 
 const srcDir = path.join(__dirname, 'src')
 
-export interface FrontendProps {
+export interface acme-frontendProps {
 	publicApi: PublicApi
 }
-export interface Frontend extends Resource<'custom::frontend'>, FrontendProps {
+export interface acme-frontend extends Resource<'custom::acme-frontend'>, acme-frontendProps {
 	worker: Worker
 }
 
-export const Frontend = Resource(
-	'custom::frontend',
+export const acme-frontend = Resource(
+	'custom::acme-frontend',
 	{ alwaysUpdate: true },
-	async function (this: Context<Frontend>, _id, props: FrontendProps): Promise<Frontend> {
-		const frontendWorker = await Worker('worker', {
-			entrypoint: path.join(srcDir, 'frontend.app.ts'),
+	async function (this: Context<acme-frontend>, _id, props: acme-frontendProps): Promise<acme-frontend> {
+		const acme-frontendWorker = await Worker('worker', {
+			entrypoint: path.join(srcDir, 'acme-frontend.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
 			bindings: {
@@ -27,10 +27,10 @@ export const Frontend = Resource(
 			},
 		})
 
-		console.log(`frontend deployed at: ${frontendWorker.url}`)
+		console.log(`acme-frontend deployed at: ${acme-frontendWorker.url}`)
 
 		return this({
-			worker: frontendWorker,
+			worker: acme-frontendWorker,
 			publicApi: props.publicApi,
 		})
 	}

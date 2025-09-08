@@ -16,7 +16,7 @@ const app = new Hono<App>()
 	.notFound(useNotFound())
 
 	.get('/', async (c) => {
-		return c.text('hello from frontend!')
+		return c.text('hello from acme-frontend!')
 	})
 
 	.get('/acme-api', async (c) => {
