@@ -12,7 +12,7 @@ const app = await alchemy('acme', {
 const r2Bucket = await R2Bucket('bucket')
 
 const acmeApi = await AcmeApi('api', {
-	r2Bucket,
+	r2Bucket, // dependency injection
 })
 
 await AcmeFrontend('frontend', {

@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { Resource } from 'alchemy'
-import { Worker } from 'alchemy/cloudflare'
+import { Worker, WranglerJson } from 'alchemy/cloudflare'
 
 import type { Context } from 'alchemy'
 import type { AcmeApi } from '@repo/acme-api/alchemy.resources'
@@ -32,6 +32,11 @@ export const AcmeFrontend = Resource(
 		})
 
 		console.log(`acme-frontend deployed at: ${acmeFrontendWorker.url}`)
+
+		await WranglerJson({
+			worker: acmeFrontendWorker,
+			path: path.join(srcDir, 'wrangler.jsonc'),
+		})
 
 		return this({
 			worker: acmeFrontendWorker,
