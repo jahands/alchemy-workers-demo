@@ -8,9 +8,5 @@
 	"logpush": true,
 	"observability": {
 		"enabled": true
-	},
-	"vars": {
-		"ENVIRONMENT": "development", // overridden during deployment
-		"SENTRY_RELEASE": "unknown" // overridden during deployment
 	}
 }

@@ -9,11 +9,7 @@ const app = new Hono<App>()
 	.use(
 		'*',
 		// middleware
-		(c, next) =>
-			useWorkersLogger(c.env.NAME, {
-				environment: c.env.ENVIRONMENT,
-				release: c.env.SENTRY_RELEASE,
-			})(c, next)
+		(c, next) => useWorkersLogger(c.env.NAME)(c, next)
 	)
 
 	.onError(useOnError())
