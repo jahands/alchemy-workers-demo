@@ -24,7 +24,7 @@ const app = new Hono<App>()
 	})
 
 	.get('/public-api', async (c) => {
-		const res = await c.env.PUBLIC_API.fetch(c.req.raw)
+		const res = await c.env.PUBLIC_API.fetch('http://public-api/')
 		return c.newResponse(res.body, res)
 	})
 
