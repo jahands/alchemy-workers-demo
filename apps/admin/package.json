@@ -5,7 +5,7 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
-		"./infra": "./alchemy.resources.ts"
+		"./resources": "./alchemy.resources.ts"
 	},
 	"scripts": {
 		"build:wrangler": "run-wrangler-build",
