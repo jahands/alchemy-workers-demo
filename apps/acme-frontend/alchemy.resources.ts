@@ -3,7 +3,7 @@ import { Resource } from 'alchemy'
 import { Worker } from 'alchemy/cloudflare'
 
 import type { Context } from 'alchemy'
-import type { PublicApi } from '@repo/public-api/alchemy.resources'
+import type { PublicApi } from '@repo/acme-api/alchemy.resources'
 
 const srcDir = path.join(__dirname, 'src')
 

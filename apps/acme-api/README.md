@@ -1,23 +1,3 @@
-# public-api
+# @repo/acme-api
 
-user-facing API for our app
-
-## Development
-
-### Run in dev mode
-
-```sh
-pnpm dev
-```
-
-### Run tests
-
-```sh
-pnpm test
-```
-
-### Deploy
-
-```sh
-pnpm turbo deploy
-```
+API for our app (usable on it's own as well as RPC from acme-frontend)

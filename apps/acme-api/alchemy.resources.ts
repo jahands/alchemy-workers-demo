@@ -11,16 +11,16 @@ export interface PublicApiProps {
 	r2Bucket: R2Bucket
 }
 
-export interface PublicApi extends Resource<'custom::public-api'>, PublicApiProps {
+export interface PublicApi extends Resource<'custom::acme-api'>, PublicApiProps {
 	worker: Worker
 }
 
 export const PublicApi = Resource(
-	'custom::public-api',
+	'custom::acme-api',
 	{ alwaysUpdate: true },
 	async function (this: Context<PublicApi>, _id, props: PublicApiProps): Promise<PublicApi> {
 		const publicApiWorker = await Worker('worker', {
-			entrypoint: path.join(srcDir, 'public-api.app.ts'),
+			entrypoint: path.join(srcDir, 'acme-api.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
 			bindings: {
@@ -28,7 +28,7 @@ export const PublicApi = Resource(
 			},
 		})
 
-		console.log(`public-api deployed at: ${publicApiWorker.url}`)
+		console.log(`acme-api deployed at: ${publicApiWorker.url}`)
 
 		return this({
 			worker: publicApiWorker,

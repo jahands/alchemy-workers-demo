@@ -14,8 +14,8 @@
 		"test": "run-vitest"
 	},
 	"dependencies": {
+		"@repo/acme-api": "workspace:*",
 		"@repo/hono-helpers": "workspace:*",
-		"@repo/public-api": "workspace:*",
 		"alchemy": "0.65.0",
 		"hono": "4.9.1",
 		"workers-tagged-logger": "0.13.2"

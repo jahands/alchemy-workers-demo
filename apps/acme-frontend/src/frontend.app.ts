@@ -19,8 +19,8 @@ const app = new Hono<App>()
 		return c.text('hello from frontend!')
 	})
 
-	.get('/public-api', async (c) => {
-		const res = await c.env.PUBLIC_API.fetch('http://public-api/')
+	.get('/acme-api', async (c) => {
+		const res = await c.env.PUBLIC_API.fetch('http://acme-api/')
 		return c.newResponse(res.body, res)
 	})
 

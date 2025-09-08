@@ -1,7 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "public-api",
-	"main": "src/public-api.app.ts",
+	"name": "acme-api",
+	"main": "src/acme-api.app.ts",
 	"compatibility_date": "2025-09-08",
 	"compatibility_flags": ["nodejs_compat"],
 	"routes": [],

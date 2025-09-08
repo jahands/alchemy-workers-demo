@@ -16,7 +16,7 @@ const app = new Hono<App>()
 	.notFound(useNotFound())
 
 	.get('/', async (c) => {
-		return c.text('hello from public-api!')
+		return c.text('hello from acme-api!')
 	})
 
 export default app
