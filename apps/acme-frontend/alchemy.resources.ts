@@ -3,35 +3,39 @@ import { Resource } from 'alchemy'
 import { Worker } from 'alchemy/cloudflare'
 
 import type { Context } from 'alchemy'
-import type { PublicApi } from '@repo/acme-api/alchemy.resources'
+import type { AcmeApi } from '@repo/acme-api/alchemy.resources'
 
 const srcDir = path.join(__dirname, 'src')
 
-export interface acme-frontendProps {
-	publicApi: PublicApi
+export interface AcmeFrontendProps {
+	acmeApi: AcmeApi
 }
-export interface acme-frontend extends Resource<'custom::acme-frontend'>, acme-frontendProps {
+export interface AcmeFrontend extends Resource<'custom::acme-frontend'>, AcmeFrontendProps {
 	worker: Worker
 }
 
-export const acme-frontend = Resource(
+export const AcmeFrontend = Resource(
 	'custom::acme-frontend',
 	{ alwaysUpdate: true },
-	async function (this: Context<acme-frontend>, _id, props: acme-frontendProps): Promise<acme-frontend> {
-		const acme-frontendWorker = await Worker('worker', {
+	async function (
+		this: Context<AcmeFrontend>,
+		_id,
+		props: AcmeFrontendProps
+	): Promise<AcmeFrontend> {
+		const acmeFrontendWorker = await Worker('worker', {
 			entrypoint: path.join(srcDir, 'acme-frontend.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
 			bindings: {
-				PUBLIC_API: props.publicApi.worker,
+				ACME_API: props.acmeApi.worker,
 			},
 		})
 
-		console.log(`acme-frontend deployed at: ${acme-frontendWorker.url}`)
+		console.log(`acme-frontend deployed at: ${acmeFrontendWorker.url}`)
 
 		return this({
-			worker: acme-frontendWorker,
-			publicApi: props.publicApi,
+			worker: acmeFrontendWorker,
+			acmeApi: props.acmeApi,
 		})
 	}
 )

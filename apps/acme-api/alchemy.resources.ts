@@ -7,19 +7,19 @@ import type { R2Bucket } from 'alchemy/cloudflare'
 
 const srcDir = path.join(__dirname, 'src')
 
-export interface PublicApiProps {
+export interface AcmeApiProps {
 	r2Bucket: R2Bucket
 }
 
-export interface PublicApi extends Resource<'custom::acme-api'>, PublicApiProps {
+export interface AcmeApi extends Resource<'custom::acme-api'>, AcmeApiProps {
 	worker: Worker
 }
 
-export const PublicApi = Resource(
+export const AcmeApi = Resource(
 	'custom::acme-api',
 	{ alwaysUpdate: true },
-	async function (this: Context<PublicApi>, _id, props: PublicApiProps): Promise<PublicApi> {
-		const publicApiWorker = await Worker('worker', {
+	async function (this: Context<AcmeApi>, _id, props: AcmeApiProps): Promise<AcmeApi> {
+		const acmeApiWorker = await Worker('worker', {
 			entrypoint: path.join(srcDir, 'acme-api.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
@@ -28,10 +28,10 @@ export const PublicApi = Resource(
 			},
 		})
 
-		console.log(`acme-api deployed at: ${publicApiWorker.url}`)
+		console.log(`acme-api deployed at: ${acmeApiWorker.url}`)
 
 		return this({
-			worker: publicApiWorker,
+			worker: acmeApiWorker,
 			r2Bucket: props.r2Bucket,
 		})
 	}
