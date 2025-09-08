@@ -5,12 +5,8 @@
 	"sideEffects": false,
 	"type": "module",
 	"scripts": {
-		"build:wrangler": "run-wrangler-build",
 		"check:lint": "run-eslint",
 		"check:types": "run-tsc",
-		"deploy": "run-wrangler-deploy",
-		"dev": "run-wrangler-dev",
-		"fix:workers-types": "run-wrangler-types",
 		"test": "run-vitest"
 	},
 	"dependencies": {
