@@ -17,6 +17,7 @@ export interface PublicApi extends Resource<'custom::public-api'>, PublicApiProp
 
 export const PublicApi = Resource(
 	'custom::public-api',
+	{ alwaysUpdate: true },
 	async function (this: Context<PublicApi>, _id, props: PublicApiProps): Promise<PublicApi> {
 		const publicApiWorker = await Worker('worker', {
 			entrypoint: path.join(srcDir, 'public-api.app.ts'),

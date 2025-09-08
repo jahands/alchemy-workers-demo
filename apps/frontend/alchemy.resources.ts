@@ -16,6 +16,7 @@ export interface Frontend extends Resource<'custom::frontend'>, FrontendProps {
 
 export const Frontend = Resource(
 	'custom::frontend',
+	{ alwaysUpdate: true },
 	async function (this: Context<Frontend>, _id, props: FrontendProps): Promise<Frontend> {
 		const frontendWorker = await Worker('worker', {
 			entrypoint: path.join(srcDir, 'frontend.app.ts'),
