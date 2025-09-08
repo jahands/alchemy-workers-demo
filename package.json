@@ -1,5 +1,5 @@
 {
-	"name": "workers-monorepo-template",
+	"name": "alchemy-workers-demo",
 	"version": "1.0.0",
 	"private": true,
 	"sideEffects": false,
