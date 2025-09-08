@@ -20,7 +20,7 @@ const app = new Hono<App>()
 	.notFound(useNotFound())
 
 	.get('/', async (c) => {
-		return c.text('hello, world!')
+		return c.text('hello from public-api!')
 	})
 
 export default app

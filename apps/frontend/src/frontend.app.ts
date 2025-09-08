@@ -20,7 +20,12 @@ const app = new Hono<App>()
 	.notFound(useNotFound())
 
 	.get('/', async (c) => {
-		return c.text('hello, world!')
+		return c.text('hello from frontend!')
+	})
+
+	.get('/public-api', async (c) => {
+		const res = await c.env.PUBLIC_API.fetch(c.req.raw)
+		return c.newResponse(res.body, res)
 	})
 
 export default app

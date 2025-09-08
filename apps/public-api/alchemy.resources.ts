@@ -13,7 +13,6 @@ export interface PublicApiProps {
 
 export interface PublicApi extends Resource<'custom::public-api'>, PublicApiProps {
 	worker: Worker
-	r2Bucket: R2Bucket
 }
 
 export const PublicApi = Resource(

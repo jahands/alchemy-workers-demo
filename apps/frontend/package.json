@@ -4,9 +4,6 @@
 	"private": true,
 	"sideEffects": false,
 	"type": "module",
-	"exports": {
-		"./resources": "./alchemy.resources.ts"
-	},
 	"scripts": {
 		"build:wrangler": "run-wrangler-build",
 		"check:lint": "run-eslint",
