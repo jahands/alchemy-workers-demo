@@ -3,7 +3,7 @@ import type { SharedHonoEnv, SharedHonoVariables } from '@repo/hono-helpers/src/
 
 export type Env = SharedHonoEnv & {
 	// add additional Bindings here
-	PUBLIC_API: any // TODO: add type
+	ACME_API: any // TODO: add type
 }
 
 /** Variables can be extended */
