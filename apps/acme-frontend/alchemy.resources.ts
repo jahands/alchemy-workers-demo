@@ -38,9 +38,11 @@ export const AcmeFrontend = Resource(
 			path: path.join(srcDir, 'wrangler.jsonc'),
 		})
 
-		return this({
+		const returnProps: Partial<AcmeFrontend> = {
 			worker: acmeFrontendWorker,
 			acmeApi: props.acmeApi,
-		})
+		}
+
+		return this(returnProps as any)
 	}
 )

@@ -35,9 +35,11 @@ export const AcmeApi = Resource(
 			path: path.join(srcDir, 'wrangler.jsonc'),
 		})
 
-		return this({
+		const returnProps: Partial<AcmeApi> = {
 			worker: acmeApiWorker,
 			r2Bucket: props.r2Bucket,
-		})
+		}
+
+		return this(returnProps as any)
 	}
 )
