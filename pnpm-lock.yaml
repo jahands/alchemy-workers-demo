@@ -293,6 +293,21 @@ importers:
         specifier: 3.2.4
         version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
 
+  packages/infra:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/tools':
+        specifier: workspace:*
+        version: link:../tools
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      vitest:
+        specifier: 3.2.4
+        version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
+
   packages/tools:
     dependencies:
       '@commander-js/extra-typings':
