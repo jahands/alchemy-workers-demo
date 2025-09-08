@@ -1,15 +1,13 @@
 {
-  "name": "acme-api-worker-prod",
-  "main": "acme-api.app.ts",
-  "compatibility_date": "2025-09-08",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "r2_buckets": [
-    {
-      "binding": "R2",
-      "bucket_name": "acme-bucket-prod",
-      "preview_bucket_name": "acme-bucket-prod"
-    }
-  ]
+	"name": "acme-api-worker-prod",
+	"main": "acme-api.app.ts",
+	"compatibility_date": "2025-09-08",
+	"compatibility_flags": ["nodejs_compat"],
+	"r2_buckets": [
+		{
+			"binding": "R2",
+			"bucket_name": "acme-bucket-prod",
+			"preview_bucket_name": "acme-bucket-prod"
+		}
+	]
 }
