@@ -1,9 +1,9 @@
+import type { AcmeApiEntrypoint } from '@repo/acme-api/src/acme-api.app'
 import type { HonoApp } from '@repo/hono-helpers'
 import type { SharedHonoEnv, SharedHonoVariables } from '@repo/hono-helpers/src/types'
 
 export type Env = SharedHonoEnv & {
-	// add additional Bindings here
-	ACME_API: any // TODO: add type
+	ACME_API: AcmeApiEntrypoint
 }
 
 /** Variables can be extended */
