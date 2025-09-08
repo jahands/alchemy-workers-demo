@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { useWorkersLogger } from 'workers-tagged-logger'
 
-import { getRequestLogData, logger, useNotFound, useOnError } from '@repo/hono-helpers'
+import { useNotFound, useOnError } from '@repo/hono-helpers'
 
 import type { App } from './context'
 
