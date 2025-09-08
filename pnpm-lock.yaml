@@ -54,7 +54,109 @@ importers:
         specifier: 3.2.4
         version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
 
-  apps/example-worker-echoback:
+  apps/admin:
+    dependencies:
+      '@repo/hono-helpers':
+        specifier: workspace:*
+        version: link:../../packages/hono-helpers
+      hono:
+        specifier: 4.9.1
+        version: 4.9.1
+      workers-tagged-logger:
+        specifier: 0.13.2
+        version: 0.13.2
+    devDependencies:
+      '@cloudflare/vitest-pool-workers':
+        specifier: 0.8.63
+        version: 0.8.63(@cloudflare/workers-types@4.20250813.0)(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1))
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/tools':
+        specifier: workspace:*
+        version: link:../../packages/tools
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: 22.15.27
+        version: 22.15.27
+      vitest:
+        specifier: 3.2.4
+        version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
+      wrangler:
+        specifier: 4.29.1
+        version: 4.29.1(@cloudflare/workers-types@4.20250813.0)
+
+  apps/frontend:
+    dependencies:
+      '@repo/hono-helpers':
+        specifier: workspace:*
+        version: link:../../packages/hono-helpers
+      hono:
+        specifier: 4.9.1
+        version: 4.9.1
+      workers-tagged-logger:
+        specifier: 0.13.2
+        version: 0.13.2
+    devDependencies:
+      '@cloudflare/vitest-pool-workers':
+        specifier: 0.8.63
+        version: 0.8.63(@cloudflare/workers-types@4.20250813.0)(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1))
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/tools':
+        specifier: workspace:*
+        version: link:../../packages/tools
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: 22.15.27
+        version: 22.15.27
+      vitest:
+        specifier: 3.2.4
+        version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
+      wrangler:
+        specifier: 4.29.1
+        version: 4.29.1(@cloudflare/workers-types@4.20250813.0)
+
+  apps/internal-api:
+    dependencies:
+      '@repo/hono-helpers':
+        specifier: workspace:*
+        version: link:../../packages/hono-helpers
+      hono:
+        specifier: 4.9.1
+        version: 4.9.1
+      workers-tagged-logger:
+        specifier: 0.13.2
+        version: 0.13.2
+    devDependencies:
+      '@cloudflare/vitest-pool-workers':
+        specifier: 0.8.63
+        version: 0.8.63(@cloudflare/workers-types@4.20250813.0)(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1))
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/tools':
+        specifier: workspace:*
+        version: link:../../packages/tools
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: 22.15.27
+        version: 22.15.27
+      vitest:
+        specifier: 3.2.4
+        version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
+      wrangler:
+        specifier: 4.29.1
+        version: 4.29.1(@cloudflare/workers-types@4.20250813.0)
+
+  apps/public-api:
     dependencies:
       '@repo/hono-helpers':
         specifier: workspace:*
