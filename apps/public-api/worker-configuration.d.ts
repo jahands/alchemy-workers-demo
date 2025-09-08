@@ -1,5 +1,5 @@
 /* eslint-disable */
-// Runtime types generated with workerd@1.20250813.0 2025-04-28 nodejs_compat
+// Runtime types generated with workerd@1.20250813.0 2025-09-08 nodejs_compat
 // Begin runtime types
 /*! *****************************************************************************
 Copyright (c) Cloudflare. All rights reserved.
@@ -231,6 +231,8 @@ interface ServiceWorkerGlobalScope extends WorkerGlobalScope {
     ByteLengthQueuingStrategy: typeof ByteLengthQueuingStrategy;
     CountQueuingStrategy: typeof CountQueuingStrategy;
     ErrorEvent: typeof ErrorEvent;
+    MessageChannel: typeof MessageChannel;
+    MessagePort: typeof MessagePort;
     EventSource: typeof EventSource;
     ReadableStreamBYOBRequest: typeof ReadableStreamBYOBRequest;
     ReadableStreamDefaultController: typeof ReadableStreamDefaultController;
@@ -366,6 +368,8 @@ declare abstract class Navigator {
     sendBeacon(url: string, body?: (ReadableStream | string | (ArrayBuffer | ArrayBufferView) | Blob | FormData | URLSearchParams | URLSearchParams)): boolean;
     readonly userAgent: string;
     readonly hardwareConcurrency: number;
+    readonly language: string;
+    readonly languages: string[];
 }
 /**
 * The Workers runtime supports a subset of the Performance API, used to measure timing and performance,
@@ -1420,7 +1424,7 @@ interface Request<CfHostMetadata = unknown, Cf = CfProperties<CfHostMetadata>> e
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/cache)
      */
-    cache?: "no-store";
+    cache?: "no-store" | "no-cache";
 }
 interface RequestInit<Cf = CfProperties> {
     /* A string to set request's method. */
@@ -1434,7 +1438,7 @@ interface RequestInit<Cf = CfProperties> {
     fetcher?: (Fetcher | null);
     cf?: Cf;
     /* A string indicating how the request will interact with the browser's cache to set request's cache. */
-    cache?: "no-store";
+    cache?: "no-store" | "no-cache";
     /* A cryptographic hash of the resource to be fetched by request. Sets request's integrity. */
     integrity?: string;
     /* An AbortSignal to set request's signal. */
@@ -2251,6 +2255,7 @@ declare class URLPattern {
     get pathname(): string;
     get search(): string;
     get hash(): string;
+    get hasRegExpGroups(): boolean;
     test(input?: (string | URLPatternInit), baseURL?: string): boolean;
     exec(input?: (string | URLPatternInit), baseURL?: string): URLPatternResult | null;
 }
@@ -2506,7 +2511,7 @@ interface ContainerStartupOptions {
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort)
  */
-interface MessagePort extends EventTarget {
+declare abstract class MessagePort extends EventTarget {
     /**
      * Posts a message through the channel. Objects listed in transfer are transferred, not just cloned, meaning that they are no longer usable on the sending side.
      *
@@ -2529,6 +2534,26 @@ interface MessagePort extends EventTarget {
     start(): void;
     get onmessage(): any | null;
     set onmessage(value: any | null);
+}
+/**
+ * This Channel Messaging API interface allows us to create a new message channel and send data through it via its two MessagePort properties.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageChannel)
+ */
+declare class MessageChannel {
+    constructor();
+    /**
+     * Returns the first MessagePort object.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageChannel/port1)
+     */
+    readonly port1: MessagePort;
+    /**
+     * Returns the second MessagePort object.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageChannel/port2)
+     */
+    readonly port2: MessagePort;
 }
 interface MessagePortPostMessageOptions {
     transfer?: any[];
