@@ -14,15 +14,6 @@ alias i := install
 
 
 # =============================== #
-#        DEPLOY COMMANDS          #
-# =============================== #
-
-[group('0. deploy')]
-[no-cd]
-deploy:
-  bun alchemy deploy --stage=prod
-
-# =============================== #
 #         DEV COMMANDS            #
 # =============================== #
 
@@ -70,19 +61,28 @@ preview:
   bun run preview
 
 # =============================== #
+#        DEPLOY COMMANDS          #
+# =============================== #
+
+[group('3. deploy')]
+[no-cd]
+deploy:
+  bun alchemy deploy --stage=prod
+
+# =============================== #
 #       GENERATOR COMMANDS        #
 # =============================== #
 
 # Create changeset
-[group('3. generator')]
+[group('4. generator')]
 cs:
   bun run-changeset-new
 
-[group('3. generator')]
+[group('4. generator')]
 gen *flags:
   bun run-turbo-gen {{flags}}
 
-[group('3. generator')]
+[group('4. generator')]
 new-package *flags:
   bun run-turbo-gen new-package {{flags}}
 
@@ -91,11 +91,11 @@ new-package *flags:
 # =============================== #
 
 # CLI in packages/tools for updating deps, pnpm, etc.
-[group('4. utility')]
+[group('5. utility')]
 update *flags:
   bun runx update {{flags}}
 
 # CLI in packages/tools for running commands in the repo.
-[group('4. utility')]
+[group('5. utility')]
 runx *flags:
   bun runx {{flags}}
