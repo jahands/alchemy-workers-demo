@@ -64,7 +64,7 @@ importers:
         version: link:../../packages/hono-helpers
       alchemy:
         specifier: 0.65.0
-        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0)
+        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)
       hono:
         specifier: 4.9.1
         version: 4.9.1
@@ -107,7 +107,7 @@ importers:
         version: link:../../packages/hono-helpers
       alchemy:
         specifier: 0.65.0
-        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0)
+        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)
       hono:
         specifier: 4.9.1
         version: 4.9.1
@@ -150,7 +150,7 @@ importers:
         version: link:../../apps/acme-frontend
       alchemy:
         specifier: 0.65.0
-        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0)
+        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -169,7 +169,7 @@ importers:
     dependencies:
       alchemy:
         specifier: 0.65.0
-        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0)
+        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)
       zod:
         specifier: 3.25.76
         version: 3.25.76
@@ -183,6 +183,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      '@types/node':
+        specifier: 22.15.27
+        version: 22.15.27
       vitest:
         specifier: 3.2.4
         version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
@@ -5489,11 +5492,9 @@ snapshots:
     optionalDependencies:
       workerd: 1.20250813.0
 
-  '@cloudflare/unenv-preset@2.7.2(unenv@2.0.0-rc.19)(workerd@1.20250813.0)':
+  '@cloudflare/unenv-preset@2.7.2(unenv@2.0.0-rc.19)':
     dependencies:
       unenv: 2.0.0-rc.19
-    optionalDependencies:
-      workerd: 1.20250813.0
 
   '@cloudflare/vitest-pool-workers@0.8.63(@cloudflare/workers-types@4.20250813.0)(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1))':
     dependencies:
@@ -6668,10 +6669,10 @@ snapshots:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
-  alchemy@0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0):
+  alchemy@0.65.0(@cloudflare/workers-types@4.20250813.0):
     dependencies:
       '@aws-sdk/credential-providers': 3.883.0
-      '@cloudflare/unenv-preset': 2.7.2(unenv@2.0.0-rc.19)(workerd@1.20250813.0)
+      '@cloudflare/unenv-preset': 2.7.2(unenv@2.0.0-rc.19)
       '@iarna/toml': 2.2.5
       '@smithy/node-config-provider': 4.2.0
       aws4fetch: 1.0.20
