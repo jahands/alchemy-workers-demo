@@ -1,5 +1,5 @@
 {
-  "name": "acme-api-worker-prod",
+  "name": "acme-api-worker-dev",
   "main": "src/acme-api.app.ts",
   "compatibility_date": "2025-09-08",
   "compatibility_flags": [
@@ -8,8 +8,8 @@
   "r2_buckets": [
     {
       "binding": "R2",
-      "bucket_name": "acme-bucket-prod",
-      "preview_bucket_name": "acme-bucket-prod"
+      "bucket_name": "acme-bucket-dev",
+      "preview_bucket_name": "acme-bucket-dev"
     }
   ]
 }

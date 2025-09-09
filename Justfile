@@ -51,7 +51,7 @@ build *flags:
 # Run dev script. Runs turbo dev if not in a specific project directory.
 [group('2. local dev')]
 dev *flags:
-  cd infra/alchemy && bun alchemy dev
+  cd infra/alchemy && bun alchemy dev --stage=dev
 
 # Run Workers in preview mode (if available)
 [group('2. local dev')]

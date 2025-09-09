@@ -41,10 +41,12 @@ export const AcmeFrontend = Resource(
 
 		console.log(`acme-frontend deployed at: ${acmeFrontendWorker.url}`)
 
-		await WranglerJson({
-			worker: acmeFrontendWorker,
-			path: path.join(appDir, 'wrangler.jsonc'),
-		})
+		if (stage === 'dev') {
+			await WranglerJson({
+				worker: acmeFrontendWorker,
+				path: path.join(appDir, 'wrangler.jsonc'),
+			})
+		}
 
 		return this({
 			worker: acmeFrontendWorker,

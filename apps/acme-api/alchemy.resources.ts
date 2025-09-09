@@ -38,10 +38,12 @@ export const AcmeApi = Resource(
 
 		console.log(`acme-api deployed at: ${acmeApiWorker.url}`)
 
-		await WranglerJson({
-			worker: acmeApiWorker,
-			path: path.join(appDir, 'wrangler.jsonc'),
-		})
+		if (stage === 'dev') {
+			await WranglerJson({
+				worker: acmeApiWorker,
+				path: path.join(appDir, 'wrangler.jsonc'),
+			})
+		}
 
 		return this({
 			worker: acmeApiWorker,
