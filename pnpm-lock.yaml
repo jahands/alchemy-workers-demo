@@ -114,6 +114,9 @@ importers:
       workers-tagged-logger:
         specifier: 0.13.2
         version: 0.13.2
+      zod:
+        specifier: 4.1.5
+        version: 4.1.5
     devDependencies:
       '@cloudflare/vitest-pool-workers':
         specifier: 0.8.70
