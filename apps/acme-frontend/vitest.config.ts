@@ -39,8 +39,6 @@ async function getWorker(pkgName: string) {
 	}
 }
 
-await getWorker('@repo/acme-api')
-
 export default defineWorkersProject({
 	test: {
 		poolOptions: {
@@ -53,7 +51,7 @@ export default defineWorkersProject({
 					serviceBindings: {
 						ACME_API: 'acme-api-worker-dev',
 					},
-					workers: [await getWorker('@repo/acme-api')],
+					workers: await Promise.all([getWorker('@repo/acme-api')]),
 				},
 			},
 		},
