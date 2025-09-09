@@ -1,12 +1,14 @@
 {
-	"name": "acme-frontend-worker-prod",
-	"main": "acme-frontend.app.ts",
-	"compatibility_date": "2025-09-08",
-	"compatibility_flags": ["nodejs_compat"],
-	"services": [
-		{
-			"binding": "ACME_API",
-			"service": "acme-api-worker-prod"
-		}
-	]
+  "name": "acme-frontend-worker-prod",
+  "main": "acme-frontend.app.ts",
+  "compatibility_date": "2025-09-08",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "services": [
+    {
+      "binding": "ACME_API",
+      "service": "acme-api-worker-prod"
+    }
+  ]
 }
