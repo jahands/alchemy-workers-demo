@@ -7,7 +7,7 @@ import { AcmeStage } from '@repo/acme-common'
 import type { Context } from 'alchemy'
 import type { AcmeApi } from '@repo/acme-api/alchemy.resources'
 
-const srcDir = path.join(__dirname, 'src')
+const appDir = path.resolve(__dirname)
 
 export interface AcmeFrontendProps {
 	acmeApi: AcmeApi
@@ -29,7 +29,7 @@ export const AcmeFrontend = Resource(
 		const domainName = 'acme-frontend.jtest.dev'
 
 		const acmeFrontendWorker = await Worker('worker', {
-			entrypoint: path.join(srcDir, 'acme-frontend.app.ts'),
+			entrypoint: path.join(appDir, 'src/acme-frontend.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
 			domains: stage === 'prod' ? [{ domainName, zoneId }] : [],
@@ -43,7 +43,7 @@ export const AcmeFrontend = Resource(
 
 		await WranglerJson({
 			worker: acmeFrontendWorker,
-			path: path.join(srcDir, 'wrangler.jsonc'),
+			path: path.join(appDir, 'wrangler.jsonc'),
 		})
 
 		return this({

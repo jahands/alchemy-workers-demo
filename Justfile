@@ -50,9 +50,8 @@ build *flags:
 
 # Run dev script. Runs turbo dev if not in a specific project directory.
 [group('2. local dev')]
-[no-cd]
 dev *flags:
-  bun runx dev {{flags}}
+  cd infra/alchemy && bun alchemy dev
 
 # Run Workers in preview mode (if available)
 [group('2. local dev')]
@@ -67,7 +66,7 @@ preview:
 [group('3. deploy')]
 [no-cd]
 deploy:
-  bun alchemy deploy --stage=prod
+  cd infra/alchemy && bun alchemy deploy --stage=prod
 
 # =============================== #
 #       GENERATOR COMMANDS        #

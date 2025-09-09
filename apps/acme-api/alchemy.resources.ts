@@ -7,7 +7,7 @@ import { AcmeStage } from '@repo/acme-common'
 import type { Context } from 'alchemy'
 import type { R2Bucket } from 'alchemy/cloudflare'
 
-const srcDir = path.join(__dirname, 'src')
+const appDir = path.resolve(__dirname)
 
 export interface AcmeApiProps {
 	r2Bucket: R2Bucket
@@ -26,7 +26,7 @@ export const AcmeApi = Resource(
 		const domainName = 'acme-api.jtest.dev'
 
 		const acmeApiWorker = await Worker('worker', {
-			entrypoint: path.join(srcDir, 'acme-api.app.ts'),
+			entrypoint: path.join(appDir, 'src/acme-api.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
 			domains: stage === 'prod' ? [{ domainName, zoneId }] : [],
@@ -40,7 +40,7 @@ export const AcmeApi = Resource(
 
 		await WranglerJson({
 			worker: acmeApiWorker,
-			path: path.join(srcDir, 'wrangler.jsonc'),
+			path: path.join(appDir, 'wrangler.jsonc'),
 		})
 
 		return this({
