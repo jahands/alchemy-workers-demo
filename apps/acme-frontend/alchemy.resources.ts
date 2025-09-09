@@ -30,7 +30,7 @@ export const AcmeFrontend = Resource(
 
 		const acmeFrontendWorker = await Worker('worker', {
 			entrypoint: path.join(appDir, 'src/acme-frontend.app.ts'),
-			compatibilityDate: '2025-09-08',
+			compatibilityDate: '2025-09-02',
 			compatibilityFlags: ['nodejs_compat'],
 			domains: stage === 'prod' ? [{ domainName, zoneId }] : [],
 			routes: stage === 'prod' ? [{ pattern: `${domainName}/*`, zoneId }] : [],

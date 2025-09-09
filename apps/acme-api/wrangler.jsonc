@@ -1,7 +1,7 @@
 {
   "name": "acme-api-worker-dev",
   "main": "src/acme-api.app.ts",
-  "compatibility_date": "2025-09-08",
+  "compatibility_date": "2025-09-02",
   "compatibility_flags": [
     "nodejs_compat"
   ],

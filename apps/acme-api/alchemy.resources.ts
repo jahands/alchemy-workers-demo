@@ -27,7 +27,7 @@ export const AcmeApi = Resource(
 
 		const acmeApiWorker = await Worker('worker', {
 			entrypoint: path.join(appDir, 'src/acme-api.app.ts'),
-			compatibilityDate: '2025-09-08',
+			compatibilityDate: '2025-09-02',
 			compatibilityFlags: ['nodejs_compat'],
 			domains: stage === 'prod' ? [{ domainName, zoneId }] : [],
 			routes: stage === 'prod' ? [{ pattern: `${domainName}/*`, zoneId }] : [],
