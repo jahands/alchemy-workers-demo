@@ -64,7 +64,6 @@ preview:
 # =============================== #
 
 [group('3. deploy')]
-[no-cd]
 deploy:
   cd infra/alchemy && bun alchemy deploy --stage=prod
 
