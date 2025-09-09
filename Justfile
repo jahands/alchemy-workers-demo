@@ -12,6 +12,16 @@ alias new-worker := gen
 alias up := update
 alias i := install
 
+
+# =============================== #
+#        DEPLOY COMMANDS          #
+# =============================== #
+
+[group('0. deploy')]
+[no-cd]
+deploy:
+  bun alchemy deploy --stage=prod
+
 # =============================== #
 #         DEV COMMANDS            #
 # =============================== #
@@ -58,12 +68,6 @@ dev *flags:
 [no-cd]
 preview:
   bun run preview
-
-# Deploy Workers
-[group('2. local dev')]
-[no-cd]
-deploy *flags:
-  bun turbo deploy {{flags}}
 
 # =============================== #
 #       GENERATOR COMMANDS        #
