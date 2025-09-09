@@ -2,6 +2,8 @@ import path from 'node:path'
 import { Resource } from 'alchemy'
 import { Worker, WranglerJson } from 'alchemy/cloudflare'
 
+import { AcmeStage } from '@repo/acme-common'
+
 import type { Context } from 'alchemy'
 import type { AcmeApi } from '@repo/acme-api/alchemy.resources'
 
@@ -22,10 +24,16 @@ export const AcmeFrontend = Resource(
 		_id,
 		props: AcmeFrontendProps
 	): Promise<AcmeFrontend> {
+		const stage = AcmeStage.parse(this.stage)
+		const zoneId = '9edd1df001349bb837f7ea87bea6ab01' // jtest.dev
+		const domainName = 'acme-frontend.jtest.dev'
+
 		const acmeFrontendWorker = await Worker('worker', {
 			entrypoint: path.join(srcDir, 'acme-frontend.app.ts'),
 			compatibilityDate: '2025-09-08',
 			compatibilityFlags: ['nodejs_compat'],
+			domains: stage === 'prod' ? [{ domainName, zoneId }] : [],
+			routes: stage === 'prod' ? [{ pattern: `${domainName}/*`, zoneId }] : [],
 			bindings: {
 				ACME_API: props.acmeApi.worker,
 			},

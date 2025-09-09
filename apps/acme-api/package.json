@@ -10,6 +10,7 @@
 		"test": "run-vitest"
 	},
 	"dependencies": {
+		"@repo/acme-common": "workspace:*",
 		"@repo/hono-helpers": "workspace:*",
 		"alchemy": "0.65.0",
 		"hono": "4.9.1",

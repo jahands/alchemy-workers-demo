@@ -1,29 +1,23 @@
 {
-	"name": "@repo/acme-frontend",
+	"name": "@repo/acme-common",
 	"version": "0.1.0",
 	"private": true,
 	"sideEffects": false,
 	"type": "module",
+	"main": "src/acme-common.ts",
 	"scripts": {
 		"check:lint": "run-eslint",
 		"check:types": "run-tsc",
 		"test": "run-vitest"
 	},
 	"dependencies": {
-		"@repo/acme-api": "workspace:*",
-		"@repo/acme-common": "workspace:*",
-		"@repo/hono-helpers": "workspace:*",
 		"alchemy": "0.65.0",
-		"hono": "4.9.1",
-		"workers-tagged-logger": "0.13.2"
+		"zod": "3.25.76"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "0.8.63",
 		"@repo/eslint-config": "workspace:*",
 		"@repo/tools": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "22.15.27",
-		"vitest": "3.2.4",
-		"wrangler": "4.29.1"
+		"vitest": "3.2.4"
 	}
 }

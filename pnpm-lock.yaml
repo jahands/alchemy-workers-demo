@@ -56,6 +56,9 @@ importers:
 
   apps/acme-api:
     dependencies:
+      '@repo/acme-common':
+        specifier: workspace:*
+        version: link:../../packages/acme-common
       '@repo/hono-helpers':
         specifier: workspace:*
         version: link:../../packages/hono-helpers
@@ -96,6 +99,9 @@ importers:
       '@repo/acme-api':
         specifier: workspace:*
         version: link:../acme-api
+      '@repo/acme-common':
+        specifier: workspace:*
+        version: link:../../packages/acme-common
       '@repo/hono-helpers':
         specifier: workspace:*
         version: link:../../packages/hono-helpers
@@ -136,6 +142,9 @@ importers:
       '@repo/acme-api':
         specifier: workspace:*
         version: link:../../apps/acme-api
+      '@repo/acme-common':
+        specifier: workspace:*
+        version: link:../../packages/acme-common
       '@repo/acme-frontend':
         specifier: workspace:*
         version: link:../../apps/acme-frontend
@@ -152,6 +161,28 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      vitest:
+        specifier: 3.2.4
+        version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
+
+  packages/acme-common:
+    dependencies:
+      alchemy:
+        specifier: 0.65.0
+        version: 0.65.0(@cloudflare/workers-types@4.20250813.0)(workerd@1.20250813.0)
+      zod:
+        specifier: 3.25.76
+        version: 3.25.76
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/tools':
+        specifier: workspace:*
+        version: link:../tools
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       vitest:
         specifier: 3.2.4
         version: 3.2.4(@types/node@22.15.27)(jiti@2.5.1)(lightningcss@1.29.2)(tsx@4.20.4)(yaml@2.8.1)
