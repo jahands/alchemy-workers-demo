@@ -46,8 +46,8 @@ export const AcmeApi = Resource(
 		}
 
 		return this({
+			...props,
 			worker: acmeApiWorker,
-			r2Bucket: props.r2Bucket,
 		} as any)
 	}
 )

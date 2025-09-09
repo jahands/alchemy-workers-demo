@@ -49,8 +49,8 @@ export const AcmeFrontend = Resource(
 		}
 
 		return this({
+			...props,
 			worker: acmeFrontendWorker,
-			acmeApi: props.acmeApi,
 		} as any)
 	}
 )
